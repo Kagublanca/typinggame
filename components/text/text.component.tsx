@@ -12,6 +12,10 @@ const [previousNumber, setPreviousNumber] = useState(0);
 
 function onType(e : any){
     let x = e.key;
+    if(x === "ArrowUp" || x === "ArrowRight" || x === "ArrowLeft" || x === "ArrowDown"){
+        return;
+    }
+    console.log(x)
     if(x === "Backspace" && correctLetters > 0){
     return setCorrectLetters(correctLetters - 1);
     }
