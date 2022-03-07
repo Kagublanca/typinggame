@@ -6,41 +6,39 @@ function Text({something} : TTextProps) {
 
 const initialState = "This is a paragraph"
 const [text, setText] = useState(initialState);
-const [number, setNumber] = useState(0);
+const [correctLetters, setCorrectLetters] = useState(0);
+const [previousNumber, setPreviousNumber] = useState(0);
 
-let previousNumber = Number;
 
 function onType(e : any){
-    console.log(number)
-    if(previousNumber > e.target.value.length && number > 1){
-        console.log("BACKSPACE [[[[" + number, "color: orange")
-    }
-    if(previousNumber > e.target.value.length && number < 1){
-        setNumber(0);
+    let x = e.key;
+    if(x === "Backspace" && correctLetters > 0){
+    return setCorrectLetters(correctLetters - 1);
     }
 
-const userText = e.target.value;
+    const userText = e.target.value;
 
-if(text[number] === userText[number]){
-    setNumber(number + 1);
-previousNumber = e.target.value.length;
-return console.log("Match!!");
+    if(userText.length === 0){
+        return setCorrectLetters(0);
 }
-previousNumber = e.target.value.length;
+if(text[correctLetters] === userText[correctLetters]){
+    setCorrectLetters(correctLetters + 1);
+    setPreviousNumber(previousNumber + 1)
+}
 return null;
-
 }
 
 useEffect(()=>{
-    number === text.length ? setText("Completed!") : null;
-}, [number])
+    correctLetters === text.length - 1 ? setText("Completed!") : null;
+}, [correctLetters])
 
 return(
 <>
 <S.TextWrapper>
 <S.Text>{text}</S.Text>
-<S.Input placeholder="This is where you type" maxLength={number + 1} onChange={onType}></S.Input>
+<S.Input placeholder="This is where you type" maxLength={correctLetters + 1} onKeyDown={onType}></S.Input>
 </S.TextWrapper>
+<h1>How many have you got right?: {correctLetters}</h1>
 </>
 )
 }
