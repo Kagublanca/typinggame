@@ -8,7 +8,8 @@ outline : 10px solid red;
 left: 25vw;
 top: 10vh;
 padding: 20px;
-
+.test{
+}
 `
 
 export const TextWrapper = styled.div`
