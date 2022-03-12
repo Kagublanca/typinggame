@@ -1,3 +1,3 @@
 export type TText = {
-  text: any;
+  text: string;
 };
