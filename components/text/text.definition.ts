@@ -1,3 +1,1 @@
-export type TText = {
-  text: string;
-};
+export type TText = {};

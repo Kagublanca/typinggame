@@ -5,12 +5,12 @@ import * as S from "./text.style";
 function Text({}: TText) {
   const [userText, setUserText] = useState([]);
   const [actualText, setActualText] = useState("");
-  const [paragraph, setParagraph] = useState(
-    "Hello try and type this out quick!"
-  );
+  const [paragraph, setParagraph] = useState("");
   const [correctLetters, setCorrectLetters] = useState(0);
   const [singleLetter, setSingleLetter] = useState("");
 
+  //Make a fetch request here to an API which houses some trivia?
+  //Possibly keep this in the backend database if needed.
   const paragraphList = [
     "This is para one",
     "This is para two",

@@ -6,7 +6,13 @@ export const Input = styled.input`
   color: transparent;
 `;
 
-export const Heading = styled.h1``;
+export const Heading = styled.h1`
+  ::after {
+    content: "_";
+    position: relative;
+    display: flex;
+  }
+`;
 
 export const Letter = styled.h2`
   font-size: 3rem;
