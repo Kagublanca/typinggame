@@ -1,3 +1,3 @@
-export type TTextProps = {
-    something : string;
-}
+export type TText = {
+  text: any;
+};
